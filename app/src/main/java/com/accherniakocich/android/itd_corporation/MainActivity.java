@@ -3,8 +3,11 @@ package com.accherniakocich.android.itd_corporation;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
+
+import com.lusfold.spinnerloading.SpinnerLoading;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final SpinnerLoading view_pb = findViewById(R.id.pb);
+        view_pb.setPaintMode(1);
+        view_pb.setCircleRadius(20);
+        view_pb.setItemCount(8);
 
         mWebView = (WebView) findViewById(R.id.webView);
         // включаем поддержку JavaScript
@@ -28,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onPageStarted(view, url, favicon);
                 //pb.setVisibility(ProgressBar.VISIBLE);
 
-                //spinner_loading_view.setVisibility(View.VISIBLE);
+                view_pb.setVisibility(View.VISIBLE);
                 mWebView.setAlpha(0.5f);
             }
 
@@ -37,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 super.onPageFinished(view, url);
                 //pb.setVisibility(ProgressBar.GONE);
                 mWebView.setAlpha(1f);
-                //spinner_loading_view.setVisibility(View.GONE);
+                view_pb.setVisibility(View.GONE);
             }
         });
     }

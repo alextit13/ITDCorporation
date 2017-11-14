@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
     <item android:drawable="@drawable/gradient" />
+
     <item android:gravity="center"
-        android:drawable="@drawable/logo">
+        android:width="300dp"
+        android:height="100dp"
+        android:id="@+id/logo"
+        android:drawable="@drawable/lll">
     </item>
 </layer-list>
